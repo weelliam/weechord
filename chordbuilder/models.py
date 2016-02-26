@@ -1,20 +1,30 @@
 from django.db import models
 
 
-#class ChordPattern(models.Model):
-#    name = models.CharField(max_length=200)
-
-#class Chord(models.Model):
-#    pattern = models.ForeignKey(ChordPattern)
-#    scale = models.ForeignKey(Scale)
-#    notes = models.ManyToManyField(Note)
-
 class Scale(models.Model):
     name = models.CharField(max_length=200)
+
+
+class ScaleInterval(models.Model):
+    scale = models.ForeignKey(Scale)
+    interval = models.ForeignKey(Interval)
+    position = unit = models.IntegerField()
+
+
+class Mode(models.Model):
+    name = models.CharField(max_length=200)
+
+
+class ModeInterval(models.Model):
+    scale = models.ForeignKey(Scale)
+    interval = models.ForeignKey(Interval)
+    position = unit = models.IntegerField()
+
 
 class Interval(models.Model):
     name = models.CharField(max_length=200)
     unit = models.IntegerField(default=0)
+
 
 class Note(models.Model):
     name = models.CharField(max_length=5)
