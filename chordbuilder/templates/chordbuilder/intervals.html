@@ -1,24 +1,30 @@
-{% if rows %}
-    <table border="1">
-        <thead>
-            <tr>
-                {% for header in headers %}
-                <th>{{ header }}</th>
+{% extends 'chordbuilder/base.html' %}
+
+{% block title %}Intervals{% endblock %}
+
+{% block content %}
+    {% if rows %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    {% for header in headers %}
+                    <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for columns in rows %}
+                <tr>
+                    {% for column in columns %}
+                    <td>
+                        {{ column }}
+                    </td>
+                    {% endfor %}
+                </tr>
                 {% endfor %}
-            </tr>
-        </thead>
-        <tbody>
-            {% for columns in rows %}
-            <tr>
-                {% for column in columns %}
-                <td>
-                    {{ column }}
-                </td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-{% else %}
-    <p>No mode are available.</p>
-{% endif %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No mode are available.</p>
+    {% endif %}
+{% endblock %}
