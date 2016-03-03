@@ -1,0 +1,9 @@
+{% if all_mode_list %}
+    <ul>
+    {% for mode in all_mode_list %}
+        <li>{{ mode }}: {{ mode.print_intervals }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No mode are available.</p>
+{% endif %}

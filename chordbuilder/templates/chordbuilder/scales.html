@@ -1,0 +1,9 @@
+{% if all_scale_list %}
+    <ul>
+    {% for scale in all_scale_list %}
+        <li>{{ scale }}: {{ mode.print_intervals }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No scale are available.</p>
+{% endif %}
