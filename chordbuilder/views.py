@@ -44,7 +44,7 @@ def intervals(request):
             intervals = Interval.objects.filter(unit=unit).filter(type=type)
             column = ""
             for interval in intervals:
-                column = column + interval.name + " "
+                column = column + interval.name + " [ " + interval.short + " ] " + " "
             columns.append(column)
         rows.append(columns)
 

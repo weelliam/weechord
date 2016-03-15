@@ -1,9 +1,30 @@
-{% if all_mode_list %}
-    <ul>
-    {% for mode in all_mode_list %}
-        <li>{{ mode }}: {{ mode.print_intervals }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No mode are available.</p>
-{% endif %}
+{% extends 'chordbuilder/base.html' %}
+
+{% block title %}Modes{% endblock %}
+
+{% block content %}
+    {% if all_mode_list %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Tonic relative to major scale</th>
+                    <th>Intervals</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mode in all_mode_list %}
+                    <tr>
+                        <td>{{ mode }}</td>
+                        <td></td>
+                        <td>{{ mode.print_intervals }}</td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No mode are available.</p>
+    {% endif %}
+{% endblock %}

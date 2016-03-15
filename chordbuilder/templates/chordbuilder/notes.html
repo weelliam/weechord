@@ -1,9 +1,24 @@
-{% if all_note_list %}
-    <ul>
-    {% for note in all_note_list %}
-        <li>{{ note }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No node are available.</p>
-{% endif %}
+{% extends 'chordbuilder/base.html' %}
+
+{% block title %}Notes{% endblock %}
+
+{% block content %}
+    {% if all_note_list %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for note in all_note_list %}
+                <tr>
+                    <td>{{ note }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No node are available.</p>
+    {% endif %}
+{% endblock %}
