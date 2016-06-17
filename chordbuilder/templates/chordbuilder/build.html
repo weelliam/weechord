@@ -1,0 +1,11 @@
+{% extends 'chordbuilder/base.html' %}
+
+{% block title %}WeeChord{% endblock %}
+
+{% block content %}
+<form action="/chordbuilder/scale/" method="post">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <input type="submit" value="Submit" />
+</form>
+{% endblock %}

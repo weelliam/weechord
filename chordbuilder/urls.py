@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^modes/$', views.modes, name='modes'),
     url(r'^scales/$', views.scales, name='scales'),
     url(r'^intervals/$', views.intervals, name='intervals'),
+    url(r'^scale/$', views.get_scale, name='get_scale'),
 ]
